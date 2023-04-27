@@ -1,38 +1,27 @@
-# create-svelte
+# bug-sveltekit-duplicate-tab 🌶️
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This repo was created to reproduce this issue: https://github.com/sveltejs/kit/issues/9780
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Set up
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+npm ci
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Steps to reproduce
 
-To create a production version of your app:
+1. Click the link to go to the `/example` route
+2. Duplicate the tab (`Ctrl+Shift+K` on Chromium browsers)
 
-```bash
-npm run build
-```
+### Expected result:
 
-You can preview the production build with `npm run preview`.
+HTML page is rendered
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Actual result:
+
+JSON payload is rendered
+
+Recording:
+
+![bug-sveltekit-duplicate-tab](https://user-images.githubusercontent.com/23239955/234785167-caf9623b-9ea1-4ee8-ab3e-d76e27ecbd71.gif)
